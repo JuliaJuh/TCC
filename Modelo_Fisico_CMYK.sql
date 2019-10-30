@@ -2,8 +2,9 @@
 
 CREATE TABLE Cliente (
     CPF_Cliente STRING PRIMARY KEY,
+    RG_Cliente STRING,
     Nome_Cliente STRING,
-    Endereço_Cliente STRING,
+    Logradouro STRING,
     Complemento STRING,
     Cidade INT,
     Estado STRING,
@@ -11,7 +12,6 @@ CREATE TABLE Cliente (
     Telefone_Cliente STRING,
     Email_Cliente STRING,
     Data_Nasc DATE,
-    RG_Cliente STRING,
     UNIQUE (CPF_Cliente, RG_Cliente)
 );
 
@@ -19,7 +19,11 @@ CREATE TABLE Funcionario (
     Cod_Funcionario STRING PRIMARY KEY,
     CPF_Funcionario STRING,
     Nome_Funcionario STRING,
-    Endereço_Funcionario STRING,
+    Logradouro STRING,
+    Complemento STRING,
+    Estado STRING,
+    Cidade STRING,
+    CEP STRING,
     Telefone_Funcionario STRING,
     Email_Funcionario STRING,
     Data_Nasc DATE,
@@ -39,20 +43,30 @@ CREATE TABLE Produto (
 );
 
 CREATE TABLE Admnistrador (
-    CPF_Administrador STRING PRIMARY KEY UNIQUE,
+    Cod_Administrador STRING PRIMARY KEY,
+    CPF_Administrador STRING,
     Nome_Administrador STRING,
-    Endereço_Administrador STRING,
+    Logradouro STRING,
+    Complemento STRING,
+    Estado STRING,
+    Cidade STRING,
+    CEP STRING,
     Telefone_Administrador STRING,
     Email_Administrador STRING,
     Data_Nasc DATE,
     Login_Administrador STRING,
-    Senha_Administrador PASSWORD
+    Senha_Administrador PASSWORD,
+    UNIQUE (Cod_Administrador, CPF_Administrador)
 );
 
 CREATE TABLE Transportadora (
     CNPJ_Transportadora STRING PRIMARY KEY UNIQUE,
     Nome_Transportadora STRING,
-    Endereço_Transportadora STRING,
+    Logradouro STRING,
+    Complemento STRING,
+    Estado STRING,
+    Cidade STRING,
+    CEP STRING,
     Telefone_Transportadora INT,
     Email_Transportadora STRING,
     Taxa_Entrega FLOAT
@@ -61,7 +75,11 @@ CREATE TABLE Transportadora (
 CREATE TABLE Fornecedor (
     CNPJ_Fornecedor STRING PRIMARY KEY UNIQUE,
     Nome_Fornecedor STRING,
-    Endereço_Fornecedor STRING,
+    Logradouro STRING,
+    Complemento STRING,
+    Estado STRING,
+    Cidade STRING,
+    CEP STRING,
     Telefone_Fornecedor INT,
     Email_Fornecedor STRING,
     Taxa_Entrega FLOAT
